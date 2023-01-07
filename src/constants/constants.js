@@ -1,0 +1,1 @@
+export const WebApiUrl = "http://localhost:8080";
