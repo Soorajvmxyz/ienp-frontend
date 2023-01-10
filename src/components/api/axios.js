@@ -1,9 +1,10 @@
 import axios from "axios";
 import { WebApiUrl } from "../../constants/constants";
 
-const token = JSON.parse(localStorage.getItem('login'))
+const login = JSON.parse(localStorage.getItem('login'))
+const token = login ? login.token : "";
 export default axios.create({
     baseURL: WebApiUrl,
-    headers: token.token
+    headers: token
 }
 )
