@@ -1,12 +1,27 @@
+import { Link } from "react-router-dom";
 
-function AuthNavigation(){
-    return(
-        <nav className="navbar bg-dark p-3">
-            <div className="container-fluid">
-                <span className="navbar-brand fs-3 text-white fw-bold">IENP</span>
-            </div>
-        </nav>
-    )
+function AuthNavigation(props) {
+  return (
+    <nav className="navbar bg-dark p-3">
+      <div className="container-fluid">
+        <span className="navbar-brand fs-3 text-white fw-bold">IENP</span>
+        <div>
+          <Link to={"/results"} className="btn btn-outline-light m-3">
+            Results
+          </Link>
+          {props.page === "home" ? (
+            <Link to={"/login"} className="btn btn-outline-light">
+              Login/Signup
+            </Link>
+          ) : (
+            <Link to={"/"} className="btn btn-outline-light">
+              Home
+            </Link>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
 }
 
-export default AuthNavigation
+export default AuthNavigation;
