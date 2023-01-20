@@ -2,27 +2,30 @@ import { useState } from "react";
 import LoginCard from "../components/auth/LoginCard";
 import SignupCard from "../components/auth/SignupCard";
 import Card from "../components/ui/Card";
+import AuthNavigation from "../components/Layout/AuthNavigation";
 
+function Login() {
+  const [isAUser, setIsAUser] = useState(false);
 
-function Login(){
+  const alreadyUserHandler = () => {
+    setIsAUser(!isAUser);
+  };
 
-    const [isAUser, setIsAUser] = useState(false)
-
-    const alreadyUserHandler = () => {
-        setIsAUser(!isAUser)
-    }
-
-    return(
-        <div className="d-flex justify-content-center">
+  return (
+    <>
+      <AuthNavigation page={"login"} />
+      <div className="d-flex justify-content-center">
         <Card>
-        {isAUser?<LoginCard/>:<SignupCard />}
-        <div className='card-footer'>
-                <span onClick={alreadyUserHandler} className="text-primary">{isAUser?"Create Account":"Already a user"}</span>
-        </div>
+          {isAUser ? <LoginCard /> : <SignupCard />}
+          <div className="card-footer">
+            <span onClick={alreadyUserHandler} className="text-primary">
+              {isAUser ? "Create Account" : "Already a user"}
+            </span>
+          </div>
         </Card>
-        </div>
-        
-    )
+      </div>
+    </>
+  );
 }
 
 export default Login;
