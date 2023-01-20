@@ -7,6 +7,11 @@ const AnnouncementRow = (props) => {
         <p>{props.description}</p>
         Date:{props.date}
       </div>
+      {props.access === "faculty" ? (
+        <button className="btn btn-outline-dark mt-3">somebutton</button>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

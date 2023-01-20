@@ -10,6 +10,7 @@ const AnnouncementBody = (props) => {
           subject={announcement.subject}
           description={announcement.description}
           date={announcement.date}
+          access={props.access}
         />
       ))}
     </>

@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import AnnouncementBody from "../components/announcements/AnnouncementBody";
-import AuthNavigation from "../components/Layout/AuthNavigation";
+import MainNavigation from "../components/Layout/MainNavigation";
 import axios from "../components/api/axios";
 
-export default function Home() {
+export default function FacultyHome() {
   const [announcementData, setAnnouncementData] = useState([]);
-  const [mounted, setMounted] = useState(false);
 
   async function getAnnouncements() {
     await axios.get("/api/v1/announcement").then((res) => {
       setAnnouncementData(res.data);
-      setMounted(true);
     });
   }
 
@@ -20,14 +18,13 @@ export default function Home() {
 
   return (
     <>
-      <AuthNavigation page={"home"} />
-      {mounted ? (
-        <div className="d-flex flex-column align-items-center p-2 ">
-          <AnnouncementBody announcements={announcementData} access="user" />
+      <MainNavigation page="home" />
+      <div className="d-flex flex-column align-items-center p-2">
+        <button className="btn fw-bold fs-4 mt-2">New Announcement</button>
+        <div className="d-flex flex-column align-items-center p-2 w-50">
+          <AnnouncementBody announcements={announcementData} access="faculty" />
         </div>
-      ) : (
-        <p>Loading</p>
-      )}
+      </div>
     </>
   );
 }
