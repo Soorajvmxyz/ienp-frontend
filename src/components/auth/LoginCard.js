@@ -24,6 +24,7 @@ function LoginCard(props) {
         "login",
         JSON.stringify({
           login: "true",
+          username: res.data.username,
           token: res.data.accessToken,
         })
       );
