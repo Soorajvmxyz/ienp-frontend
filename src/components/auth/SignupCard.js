@@ -77,13 +77,21 @@ function SignupCard() {
         <label htmlFor="department" className="mb-2">
           Department
         </label>
-        <input
-          type="text"
+        <select
           className="form-control align-self-start mb-2"
           ref={departmentRef}
           id="department"
-          required
-        ></input>
+        >
+          <option value="BSc CS">BSc CS</option>
+          <option value="BSc Maths">BSc Maths</option>
+          <option value="BSc Physics">BSc Physics</option>
+          <option value="BSc Chemistry">BSc Chemistry</option>
+          <option value="BSc Zoology">BSc Zoology</option>
+          <option value="BSc Botany">BSc Botany</option>
+          <option value="BCom">BCom</option>
+          <option value="BA English">BA English</option>
+          <option value="BA Hindi">BA Hindi</option>
+        </select>
 
         <button className="btn btn-outline-dark mt-2" onClick={signupHandler}>
           SignUp
