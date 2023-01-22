@@ -6,6 +6,7 @@ const AnnouncementBody = (props) => {
       {props.announcements.map((announcement) => (
         <AnnouncementRow
           key={announcement.id}
+          id={announcement.id}
           title={announcement.title}
           subject={announcement.subject}
           description={announcement.description}

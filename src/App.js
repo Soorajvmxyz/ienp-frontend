@@ -5,6 +5,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import FacultyHome from "./pages/FacultyHome";
 import Results from "./pages/Results";
+import NewAnnouncement from "./pages/NewAnnouncement";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/results" exact>
           <Results />
+        </Route>
+        <Route path="/add-announcement" exact>
+          <NewAnnouncement />
         </Route>
       </Switch>
     </div>

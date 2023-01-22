@@ -9,7 +9,7 @@ function MainNavigation(props) {
   }
 
   return (
-    <nav className="navbar bg-dark p-3">
+    <nav className="navbar bg-dark p-3 shadow">
       <div className="container-fluid">
         <span className="navbar-brand fs-3 text-white fw-bold">IENP</span>
         <div>

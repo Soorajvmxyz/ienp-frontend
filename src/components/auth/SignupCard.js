@@ -30,6 +30,7 @@ function SignupCard() {
         "login",
         JSON.stringify({
           login: "true",
+          username: res.data.username,
           token: res.data.accessToken,
         })
       );
