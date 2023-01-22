@@ -28,16 +28,11 @@ export default function FacultyHome() {
         >
           New Announcement
         </Link>
-        <div className="d-flex flex-column align-items-center p-2 w-50">
-          {announcementData.length !== 0 ? (
-            <AnnouncementBody
-              announcements={announcementData}
-              access="faculty"
-            />
-          ) : (
-            <h5>You have no announcements yet</h5>
-          )}
-        </div>
+        {announcementData.length !== 0 ? (
+          <AnnouncementBody announcements={announcementData} access="faculty" />
+        ) : (
+          <h5 className="mt-3">You have no announcements yet!</h5>
+        )}
       </div>
     </>
   );
