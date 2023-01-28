@@ -83,15 +83,15 @@ function SignupCard() {
           ref={departmentRef}
           id="department"
         >
-          <option value="BSc CS">BSc CS</option>
-          <option value="BSc Maths">BSc Maths</option>
-          <option value="BSc Physics">BSc Physics</option>
-          <option value="BSc Chemistry">BSc Chemistry</option>
-          <option value="BSc Zoology">BSc Zoology</option>
-          <option value="BSc Botany">BSc Botany</option>
+          <option value="BScCS">BSc CS</option>
+          <option value="BScMaths">BSc Maths</option>
+          <option value="BScPhysics">BSc Physics</option>
+          <option value="BScChemistry">BSc Chemistry</option>
+          <option value="BScZoology">BSc Zoology</option>
+          <option value="BScBotany">BSc Botany</option>
           <option value="BCom">BCom</option>
-          <option value="BA English">BA English</option>
-          <option value="BA Hindi">BA Hindi</option>
+          <option value="BAEnglish">BA English</option>
+          <option value="BAHindi">BA Hindi</option>
         </select>
 
         <button className="btn btn-outline-dark mt-2" onClick={signupHandler}>

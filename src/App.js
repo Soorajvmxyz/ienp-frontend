@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import FacultyHome from "./pages/FacultyHome";
 import Results from "./pages/Results";
 import NewAnnouncement from "./pages/NewAnnouncement";
+import Students from "./pages/Students";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/add-announcement" exact>
           <NewAnnouncement />
+        </Route>
+        <Route path="/students" exact>
+          <Students />
         </Route>
       </Switch>
     </div>

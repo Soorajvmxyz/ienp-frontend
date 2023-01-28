@@ -13,16 +13,28 @@ function MainNavigation(props) {
       <div className="container-fluid">
         <span className="navbar-brand fs-3 text-white fw-bold">IENP</span>
         <div>
-          {props.page === "home" ? (
-            <Link to={"/announcements"} className="btn btn-outline-light m-3">
+          {props.page !== "results" ? (
+            <Link to={"/announcements"} className="btn text-light fw-bold m-3">
               Results
             </Link>
           ) : (
-            <Link to={"/home"} className="btn btn-outline-light m-3">
+            <></>
+          )}
+          {props.page !== "home" ? (
+            <Link to={"/home"} className="btn text-light fw-bold m-3">
               Announcements
             </Link>
+          ) : (
+            <></>
           )}
-          <button className="btn btn-outline-light" onClick={onLogoutHandler}>
+          {props.page !== "students" ? (
+            <Link to={"/students"} className="btn text-light fw-bold m-3">
+              Students Data
+            </Link>
+          ) : (
+            <></>
+          )}
+          <button className="btn text-light fw-bold" onClick={onLogoutHandler}>
             Log out
           </button>
         </div>
