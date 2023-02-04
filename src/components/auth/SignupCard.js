@@ -1,6 +1,7 @@
 import axios from "../api/axios";
 import { useRef } from "react";
 import { useHistory } from "react-router-dom";
+import { DepartmentList } from "../../constants/constants";
 
 function SignupCard() {
   const history = useHistory();
@@ -83,15 +84,11 @@ function SignupCard() {
           ref={departmentRef}
           id="department"
         >
-          <option value="BScCS">BSc CS</option>
-          <option value="BScMaths">BSc Maths</option>
-          <option value="BScPhysics">BSc Physics</option>
-          <option value="BScChemistry">BSc Chemistry</option>
-          <option value="BScZoology">BSc Zoology</option>
-          <option value="BScBotany">BSc Botany</option>
-          <option value="BCom">BCom</option>
-          <option value="BAEnglish">BA English</option>
-          <option value="BAHindi">BA Hindi</option>
+          {DepartmentList.map((department) => (
+            <option value={department} key={department}>
+              {department}
+            </option>
+          ))}
         </select>
 
         <button className="btn btn-outline-dark mt-2" onClick={signupHandler}>
