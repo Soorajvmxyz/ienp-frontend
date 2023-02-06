@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { useRef, useState } from "react";
 import { Months } from "../../constants/constants";
+import ResultContext from "../../store/result-context";
 import axios from "../api/axios";
 import ResultTable from "./ResultTable";
 
@@ -7,26 +9,20 @@ export default function GetResults() {
   const rollRef = useRef();
   const monthRef = useRef();
   const yearRef = useRef();
-  const [results, setResults] = useState([]);
   const [isFetched, setisFetched] = useState(false);
   const [student, setStudent] = useState({});
+  const resultCtx = useContext(ResultContext);
 
   async function submitHandler() {
     const enteredRoll = rollRef.current.value;
     const enteredMonth = monthRef.current.value;
     const enteredYear = yearRef.current.value;
 
-    await axios
-      .get(`api/v1/student/${enteredRoll}`)
-      .then(async (res) => setStudent(await res.data));
-    await axios
-      .get(
-        `/api/v1/results/rollno/${enteredRoll}/${enteredMonth}/${enteredYear}`
-      )
-      .then(async (res) => {
-        setResults(await res.data);
-        setisFetched(true);
-      });
+    await axios.get(`api/v1/student/${enteredRoll}`).then(async (res) => {
+      setStudent(await res.data);
+    });
+    resultCtx.getResultPublic(enteredRoll, enteredMonth, enteredYear);
+    setisFetched(true);
   }
 
   const searchElement = (
@@ -56,9 +52,9 @@ export default function GetResults() {
 
   const tableElement = (
     <>
-      <ResultTable result={results} />
+      <ResultTable data={student} />
       <button
-        className="btn"
+        className="btn text-primary"
         onClick={() => {
           setisFetched(!isFetched);
         }}

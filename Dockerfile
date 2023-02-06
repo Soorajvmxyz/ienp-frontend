@@ -1,15 +1,10 @@
-#Stage 1
-FROM node:18-alpine as builder
-WORKDIR /app
-COPY package.json .
-COPY yarn.lock .
+FROM node:18-alpine as build
+WORKDIR /usr/app
+COPY . /usr/app
 RUN yarn install
-COPY . .
 RUN yarn build
 
-#Stage 2
-FROM nginx:1.19.0
-WORKDIR /user/share/nginx/html
-RUN rm -rf ./*
-COPY --from=builder /app/build .
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+FROM nginx:1.23.1-alpine
+EXPOSE 80
+COPY ./docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /usr/app/build /usr/share/nginx/html
