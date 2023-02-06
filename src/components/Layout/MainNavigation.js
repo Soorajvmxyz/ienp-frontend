@@ -14,7 +14,7 @@ function MainNavigation(props) {
         <span className="navbar-brand fs-3 text-white fw-bold">IENP</span>
         <div>
           {props.page !== "results" ? (
-            <Link to={"/announcements"} className="btn text-light fw-bold m-3">
+            <Link to={"/results"} className="btn text-light fw-bold m-3">
               Results
             </Link>
           ) : (

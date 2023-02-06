@@ -7,18 +7,18 @@ function AuthNavigation(props) {
         <span className="navbar-brand fs-3 text-white fw-bold">IENP</span>
         <div>
           {props.page !== "results" ? (
-            <Link to={"/results"} className="btn btn-outline-light m-3">
+            <Link to={"/results"} className="btn text-primary fw-bold me-3">
               Results
             </Link>
           ) : (
             <></>
           )}
           {props.page === "home" ? (
-            <Link to={"/login"} className="btn btn-outline-light">
+            <Link to={"/login"} className="btn text-light fw-bold">
               Login/Signup
             </Link>
           ) : (
-            <Link to={"/"} className="btn btn-outline-light">
+            <Link to={"/"} className="btn text-light fw-bold">
               Home
             </Link>
           )}

@@ -124,7 +124,11 @@ export default function StudentBody() {
         <span className="fs-4 fw-bold m-3">Department : {department}</span>
         <div className="d-flex flex-row">
           <span className="fw-bold m-3">Year : </span>
-          <input type="text" className="form-control w-25 m-2" ref={yearRef} />
+          <select type="text" className="form-control w-25 m-2" ref={yearRef}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <button
             className="btn btn-outline-dark m-2"
             onClick={yearSearchHandler}
