@@ -99,65 +99,63 @@ export default function AddResult({
 
   const subjectSelectElement = (
     <div className="d-flex flex-column shadow border border-grey w-75 p-4 mt-3 align-items-center">
-      <div className="d-flex flex-column align-items-start">
-        <div className="d-flex flex-row w-25 mb-2">
-          <label htmlFor="subject" className="p-2">
-            YEAR :
-          </label>
-          <select
-            className="form-control w-25 ms-2 me-2"
-            id="subject"
-            ref={academicYearRef}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-        </div>
-        <div className="d-flex flex-row ">
-          <label htmlFor="subject" className="p-2">
-            SELECT SUBJECT :
-          </label>
-          <select
-            className="form-control w-25 ms-2 me-2"
-            id="subject"
-            ref={subjectDropdownRef}
-          >
-            {subjects.map((subject) => (
-              <option key={subject} value={subject}>
-                {subject}
-              </option>
-            ))}
-          </select>
-          <label htmlFor="subject" className="p-2">
-            <span className="fw-bold">OR</span> ADD NEW :
-          </label>
-          <input
-            type="text"
-            className="form-control w-25 ms-2 me-2"
-            ref={subjectInputRef}
-          />
-        </div>
-        <div className="d-flex flex-row mt-3 justify-content-between">
-          <label className="m-2">Month</label>
-          <select className="form-control w-25" ref={monthRef}>
-            {Months.map((month) => (
-              <option key={month} value={month}>
-                {month}
-              </option>
-            ))}
-          </select>
-          <label className="m-2">Year</label>
-          <input type="text" className="form-control w-25" ref={yearRef} />
-          <button
-            className="btn fw-bold btn-primary ms-2 me-2 align-self-end"
-            onClick={subjectSelectHandler}
-          >
-            SELECT
-          </button>
-        </div>
+      {/* <div className="d-flex flex-column align-items-start"> */}
+      <div className="d-flex flex-row w-25 mb-2">
+        <label htmlFor="subject" className="p-2">
+          YEAR :
+        </label>
+        <select
+          className="form-control w-25 ms-2 me-2"
+          id="subject"
+          ref={academicYearRef}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div className="d-flex flex-row">
+        <label htmlFor="subject">SELECT SUBJECT :</label>
+        <select
+          className="form-control w-25 ms-2 me-2"
+          id="subject"
+          ref={subjectDropdownRef}
+        >
+          {subjects.map((subject) => (
+            <option key={subject} value={subject}>
+              {subject}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="subject">
+          <span className="fw-bold">OR</span> ADD NEW :
+        </label>
+        <input
+          type="text"
+          className="form-control w-25 ms-2 me-2"
+          ref={subjectInputRef}
+        />
+      </div>
+      <div className="d-flex flex-row mt-3 justify-content-between">
+        <label className="m-2">Month</label>
+        <select className="form-control w-25" ref={monthRef}>
+          {Months.map((month) => (
+            <option key={month} value={month}>
+              {month}
+            </option>
+          ))}
+        </select>
+        <label className="m-2">Year</label>
+        <input type="text" className="form-control w-25" ref={yearRef} />
+        <button
+          className="btn fw-bold btn-primary ms-2 me-2 align-self-end"
+          onClick={subjectSelectHandler}
+        >
+          SELECT
+        </button>
       </div>
     </div>
+    // </div>
   );
 
   const addResultElement = (

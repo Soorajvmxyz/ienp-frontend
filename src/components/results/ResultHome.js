@@ -11,6 +11,9 @@ export default function ResultHome({ type }) {
   const [subjects, setSubjects] = useState([]);
 
   useEffect(() => {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${
+      JSON.parse(localStorage.getItem("login")).token
+    }`;
     async function fetchDepartment() {
       await axios.get(`/api/v1/faculty/${user}`).then(async (res) => {
         setDepartment(await res.data.department);

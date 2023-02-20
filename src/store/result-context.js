@@ -33,7 +33,12 @@ export function ResultContextProvider(props) {
       .get(`/api/v1/results/subject/${subject}/${month}/${year}`)
       .then(async (res) => {
         setCurrentResults(await res.data);
-        setSearchDataFaculty({ subject: subject, month: month, year: year });
+        setSearchDataFaculty({
+          subject: subject,
+          month: month,
+          year: year,
+          academicYear: academicYear,
+        });
       });
   }
   async function getResultPublicHandler(rollNo, month, year) {
