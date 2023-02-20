@@ -26,18 +26,22 @@ function SignupCard() {
       department: enteredDepartment,
     };
 
-    axios.post("/api/auth/register", signupData).then((res) => {
-      localStorage.setItem(
-        "login",
-        JSON.stringify({
-          login: "true",
-          username: res.data.username,
-          token: res.data.accessToken,
-        })
-      );
-      console.log(res);
-      history.push("/home");
-    });
+    axios
+      .post("/api/auth/register", signupData, {
+        headers: { Authorization: "" },
+      })
+      .then((res) => {
+        localStorage.setItem(
+          "login",
+          JSON.stringify({
+            login: "true",
+            username: res.data.username,
+            token: res.data.accessToken,
+          })
+        );
+        console.log(res);
+        history.push("/home");
+      });
   }
 
   return (

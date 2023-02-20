@@ -19,16 +19,20 @@ function LoginCard(props) {
       password: enteredPassword,
     };
 
-    await axios.post("/api/auth/login", userData).then((res) => {
+    await axios.post("/api/auth/login", userData).then(async (res) => {
+      const loginInfo = await res.data;
       localStorage.setItem(
         "login",
         JSON.stringify({
           login: "true",
-          username: res.data.username,
-          token: res.data.accessToken,
+          username: loginInfo.username,
+          token: loginInfo.accessToken,
         })
       );
       console.log(res);
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${loginInfo.accessToken}`;
       history.push("/home");
     });
   }

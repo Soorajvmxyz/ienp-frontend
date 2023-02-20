@@ -23,6 +23,13 @@ export default function ResultRow({ result, type, department }) {
     console.log(data);
     await axios.put(`/api/v1/results/${result.id}`, data).then(async (res) => {
       const sample = await res.data;
+      console.log(
+        department,
+        resultCtx.searchData.academicYear,
+        sample.subject,
+        sample.month,
+        sample.year
+      );
       resultCtx.getResultFaculty(
         department,
         resultCtx.searchData.academicYear,
