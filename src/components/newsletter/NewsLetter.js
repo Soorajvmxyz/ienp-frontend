@@ -4,7 +4,8 @@ import axios from "../api/axios";
 
 export default function NewsLetter({ onNewsLetter }) {
   const emailRef = useRef();
-  const [saved, onSaved] = useState(false);
+  const [notSubmitted, setNotSubmitted] = useState(true);
+  const [failed, onFailed] = useState(false);
 
   async function onSave(e) {
     e.preventDefault();
@@ -14,11 +15,14 @@ export default function NewsLetter({ onNewsLetter }) {
     const data = { email: enteredEmail };
     axios
       .post("/api/v1/newsletter", data)
-      .then(console.log("success"))
+      .then(() => {
+        console.log("success");
+        setNotSubmitted(false);
+      })
       .catch((err) => {
         console.log(err.response.data);
+        onFailed(true);
       });
-    onSaved(true);
   }
 
   const newSeletterElement = (
@@ -37,11 +41,16 @@ export default function NewsLetter({ onNewsLetter }) {
   const successElement = (
     <div className="text-success">Email Successfully Registered</div>
   );
+  const failureElement = (
+    <div className="text-danger">Email Already Registered</div>
+  );
+
+  const failureCheckElement = failed ? failureElement : successElement;
 
   return (
     <>
-      {saved ? successElement : newSeletterElement}
-      {saved ? (
+      {notSubmitted ? newSeletterElement : failureCheckElement}
+      {!notSubmitted ? (
         <button className="btn btn-success" onClick={onNewsLetter}>
           OK
         </button>
