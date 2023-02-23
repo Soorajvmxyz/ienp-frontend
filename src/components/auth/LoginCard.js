@@ -39,7 +39,9 @@ function LoginCard(props) {
         ] = `Bearer ${loginInfo.accessToken}`;
         history.push("/home");
       })
-      .catch(setErrorCaught(true));
+      .catch((err) => {
+        setErrorCaught(true);
+      });
   }
 
   return (
